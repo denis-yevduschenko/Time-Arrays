@@ -4,7 +4,7 @@ public class CreateArray {
 		int [][] arr = new int[size][size];
 		for (int i = 0; i < size; i++){
 			for (int j = 0; j < size - i; j++){
-				arr[i][j] = (int) (Math.random() * 10);
+				arr[i][j] = (int) (Math.random() * 9 + 1);
 			}
 		}
 		return arr;
