@@ -18,8 +18,6 @@ public class TimeParsier {
 	private InputStreamReader inStream = null;
 	private BufferedReader buff = null;
 	private String time;
-	
-	
 
 	public TimeParsier() throws IOException {
 		this.url = new URL("http://www.timeapi.org/utc/now");
@@ -34,9 +32,9 @@ public class TimeParsier {
 		} catch(MalformedURLException e) {
 			System.out.println("Please check the spelling of the URL: "
 							+ e.toString());
-		}catch (IOException e) {
+		}catch (IOException e1) {
 			System.out.println("Can't read from Internet: "
-					+ e.toString());
+							+ e1.toString());
 		}
 	}
 
@@ -47,26 +45,8 @@ public class TimeParsier {
 	}
 
 	private void setTimeFromURL() throws IOException{
-		
-			String temp = buff.readLine();
-			time = temp.substring(11, 19);
- 
-//		} catch(MalformedURLException e) {
-//			System.out.println("Please check the spelling of the URL: "
-//							+ e.toString());
-//		} catch (IOException e1) {
-//			System.out.println("Can't read from Internet: "
-//					+ e1.toString());
-//		} finally {
-//			try {
-//				inStream.close();
-//				buff.close();
-//			} catch(Exception e) {
-//				System.out.println("Can't close streams "
-//						+ e.getMessage());
-//			}
-//		}
-		
+		String temp = buff.readLine();
+		time = temp.substring(11, 19);
 	}
 	
 	private void closeAllConnections(){
@@ -77,7 +57,6 @@ public class TimeParsier {
 			System.out.println("Can't read from Internet: "
 					+ e.toString());
 		}
-		
 	}
 	
 	public String getTime() {
@@ -87,5 +66,4 @@ public class TimeParsier {
 	public void setTime(String time) {
 		this.time = time;
 	}
-
 }
